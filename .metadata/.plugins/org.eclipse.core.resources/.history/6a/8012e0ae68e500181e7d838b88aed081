@@ -1,0 +1,64 @@
+package external;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+public class YelpAPI {
+	private static final String HOST = "https://api.yelp.com";
+	private static final String ENDPOINT = "/v3/businesses/search";
+	private static final String DEFAULT_TERM = "";
+	private static final int SEARCH_LIMIT = 20;
+
+	private static final String TOKEN_TYPE = "Bearer";
+	private static final String API_KEY = "-cDySZys40794Dgh_WlHneJSjAGTCTSboMIPrgeVY71st1Z5xv0-OIY-jRC4ZO-LqtMP8pW5GtZYzjjCkkQMR4suKdmoFBkwnk0eGBA-qrS5Re8vmgqsp3vziKTnW3Yx";
+
+	public JSONArray search(double lat, double lon, String term) {
+		if (term == null || term.isEmpty()) {
+			term = DEFAULT_TERM;
+		}
+		
+		try {
+			term = URLEncoder.encode(term, "UTF-8"); // rick sun -> rick%20sun
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		String query = String.format("term=%s&latitude=%s&longitude=%s&limit=%s", term, lat, lon, SEARCH_LIMIT);
+		String url = HOST + ENDPOINT + "?" + query;
+		
+		try {
+			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Authoorization", TOKEN_TYPE + " " + API_KEY);
+		} catch (Exception e) {
+			
+		}
+		return new JSONArray();
+	}
+	
+	private void queryAPI(double lat, double lon) {
+		JSONArray items = search(lat, lon, null);
+		try {
+		    for (int i = 0; i < items .length(); i++) {
+		        JSONObject item = items.getJSONObject(i);
+		        System.out.println(item.toString(2));
+		    }
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

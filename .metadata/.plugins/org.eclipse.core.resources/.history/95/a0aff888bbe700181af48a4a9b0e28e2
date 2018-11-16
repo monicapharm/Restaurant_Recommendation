@@ -1,0 +1,60 @@
+package entity;
+
+import java.util.Set;
+
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+public class Item {
+	private String itemId;
+	private String name;
+	private double rating;
+	private String address;
+	private double distance;
+	private Set<String> categories;
+	private String imageUrl;
+	private String url;
+	
+	public String getItemId() {
+		return itemId;
+	}
+	public String getName() {
+		return name;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public double getDistance() {
+		return distance;
+	}
+	public Set<String> getCategories() {
+		return categories;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public String getUrl() {
+		return url;
+	}
+	
+	public JSONObject toJSONObject() {
+		JSONObject object = new JSONObject();
+		try {
+			object.put("item_id", itemId);
+			object.put("name", name);
+			object.put("rating", rating);
+			object.put("address", address);
+			object.put("distance", distance);
+			object.put("categories", new JSONArray(categories));
+			object.put("image_url", imageUrl);
+			object.put("url", url);
+		} catch (JSONExceptionn e) {
+			e.printStackTrace();
+		}
+		return object;
+	}
+}

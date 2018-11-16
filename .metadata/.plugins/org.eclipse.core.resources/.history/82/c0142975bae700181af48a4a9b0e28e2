@@ -1,0 +1,14 @@
+package entity;
+
+import java.util.Set;
+
+public class Item {
+	private String itemId;
+	private String name;
+	private double rating;
+	private String address;
+	private double distance;
+	private Set<String> categories;
+	private String imageURL;
+	private String url;
+}

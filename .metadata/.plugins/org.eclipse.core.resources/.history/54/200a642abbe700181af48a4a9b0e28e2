@@ -1,0 +1,45 @@
+package entity;
+
+import java.util.Set;
+
+import org.json.JOSNObject;
+
+public class Item {
+	private String itemId;
+	private String name;
+	private double rating;
+	private String address;
+	private double distance;
+	private Set<String> categories;
+	private String imageURL;
+	private String url;
+	
+	public String getItemId() {
+		return itemId;
+	}
+	public String getName() {
+		return name;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public double getDistance() {
+		return distance;
+	}
+	public Set<String> getCategories() {
+		return categories;
+	}
+	public String getImageURL() {
+		return imageURL;
+	}
+	public String getUrl() {
+		return url;
+	}
+	
+	public JSONObject toJsonObject() {
+		JSONObject object = new 
+	}
+}
