@@ -1,7 +1,6 @@
-INDEX VERSION 1.4+C:\Users\wuj\Documents\MLQ\Laioffer Project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2828069421.index
+INDEX VERSION 1.4+C:\Users\wuj\Documents\MLQ\Restaurant_Recommendation\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 3290918552.index
-2360365215.index
-2803159469.index
-540183809.index
-3592175505.index
+3860600225.index
+2390350507.index
+1543471048.index
+1798481033.index
